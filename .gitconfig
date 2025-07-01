@@ -1,0 +1,151 @@
+[user]
+	name = Victor Aguilar C.
+	email = vicobits@gmail.com
+
+[core]
+	editor = nano
+	autocrlf = input
+	excludesfile = ~/.gitignore_global
+
+[alias]
+	# Basic shortcuts
+	st = status
+	s = status --short
+	a = add
+	aa = add --all
+	ap = add --patch
+	c = commit
+	cm = commit -m
+	ca = commit --amend
+	can = commit --amend --no-edit
+
+	# Quick commit combinations
+	ac = !git add -A && git commit
+	acm = !git add -A && git commit -m
+
+	# Branch operations
+	b = branch
+	ba = branch -a
+	bd = branch -d
+	bD = branch -D
+	co = checkout
+	cob = checkout -b
+	com = checkout main
+	cod = checkout develop
+
+	# Remote operations
+	f = fetch
+	fa = fetch --all
+	fo = fetch origin
+	p = push
+	pf = push --force-with-lease
+	po = push origin
+	pu = push --set-upstream origin
+	pl = pull
+	plo = pull origin
+
+	# Log and history
+	l = log --oneline
+	lg = log --oneline --graph --decorate
+	lga = log --oneline --graph --decorate --all
+	ll = log --pretty=format:'%C(yellow)%h%Creset %C(blue)%ad%Creset %C(green)%an%Creset %s' --date=short
+	lol = log --graph --pretty=format:'%C(red)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) %C(blue)<%an>%Creset' --abbrev-commit
+	lola = log --graph --pretty=format:'%C(red)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) %C(blue)<%an>%Creset' --abbrev-commit --all
+
+	# Diff operations
+	d = diff
+	dc = diff --cached
+	ds = diff --stat
+	dw = diff --word-diff
+
+	# Stash operations
+	ss = stash save
+	sp = stash pop
+	sl = stash list
+	sa = stash apply
+	sd = stash drop
+
+	# Reset and undo
+	unstage = reset HEAD --
+	uncommit = reset --soft HEAD~1
+	amend = commit --amend --no-edit
+	undo = reset --hard HEAD~1
+
+	# Useful combinations
+	save = !git add -A && git commit -m 'SAVEPOINT'
+	wip = !git add -u && git commit -m "WIP"
+	ours = "!f() { git checkout --ours $@ && git add $@; }; f"
+	theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+
+	# Find and search
+	find = !git ls-files | grep -i
+	grep = grep -Ii
+
+	# Show what's in the last commit
+	last = log -1 HEAD --stat
+
+	# Show which commits are on this branch but not on main
+	new = !sh -c 'git log $1@{upstream}..HEAD --pretty=format:\"%h %s\"'
+
+	# Clean up merged branches
+	cleanup = "!git branch --merged | grep -v '\\*\\|main\\|master\\|develop' | xargs -n 1 git branch -d"
+
+	# Show contributors
+	contributors = shortlog --summary --numbered
+
+	# Aliases for working with GitHub
+	browse = !hub browse
+	compare = !hub compare
+
+	# Quick status check
+	check = !git status --porcelain | wc -l
+
+	# Show current branch
+	current = rev-parse --abbrev-ref HEAD
+
+	# Show remote URL
+	url = config --get remote.origin.url
+
+[color]
+	ui = auto
+	branch = auto
+	diff = auto
+	status = auto
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[push]
+	default = simple
+	autoSetupRemote = true
+
+[pull]
+	rebase = true
+
+[init]
+	defaultBranch = main
+
+[merge]
+	tool = vimdiff
+
+[diff]
+	tool = vimdiff
+
+[rerere]
+	enabled = true
+
+[help]
+	autocorrect = 1
