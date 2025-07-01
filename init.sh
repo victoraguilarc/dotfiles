@@ -18,7 +18,7 @@ echo "alias dotfiles='/usr/bin/git --git-dir=\$HOME/.cfg/ --work-tree=\$HOME'" >
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # 4. Oculta archivos sin seguimiento para evitar ruido
-config dotfiles status.showUntrackedFiles no
+dotfiles config status.showUntrackedFiles no
 
 # 5. Realiza el checkout (sobrescribe solo si el archivo no existe)
 echo "🏗  Instalando dotfiles…"

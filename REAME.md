@@ -1,5 +1,4 @@
-
-## Personal Dotfiles
+# Personal Dotfiles
 
 
 ### Configura los dotfiles (solo la primera vez)
