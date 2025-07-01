@@ -6,4 +6,4 @@ dotfiles checkout
 
 dotfiles add $HOME/.zshrc $HOME/.gitconfig
 dotfiles commit -m "chore: dotfiles actualizados"
-dotfiles push
+dotfiles push -u origin main
