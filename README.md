@@ -32,3 +32,6 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 dotfiles checkout
 source ~/.zshrc
 ```
+
+ > Es muy importante hacer los cambios en un solo lado, ya sea en el repo o en la carpeta de usuario
+   esto para evitar conflictos constantes
