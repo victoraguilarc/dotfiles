@@ -149,3 +149,19 @@ load-nvmrc
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+
+# Autocompletado de comandos personalizados para claude
+_claude_autocomplete() {
+  local commands_dir="${HOME}/.claude/commands"
+  # lista sin extensión
+  local cmds=$(ls "$commands_dir" 2>/dev/null | sed 's/\.[^.]*$//')
+  COMPREPLY=( $(compgen -W "$cmds" -- "${COMP_WORDS[1]}") )
+}
+
+# Asocia la función al ejecutable 'claude'
+complete -F _claude_autocomplete claude
+
+#alias claude="/Users/vic/.claude/local/claude"
+
+alias claude="/Users/vic/.claude/local/claude"
