@@ -35,3 +35,11 @@ source ~/.zshrc
 
  > Es muy importante hacer los cambios en un solo lado, ya sea en el repo o en la carpeta de usuario
    esto para evitar conflictos constantes
+
+## Setup
+
+#### Node Version
+```bash
+nvm install lts/jod
+nvm alias default lts/jod    # la fijamos como predeterminada
+```
