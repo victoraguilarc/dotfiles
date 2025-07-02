@@ -49,3 +49,16 @@ nvm alias default lts/jod    # la fijamos como predeterminada
 brew install zsh-autosuggestions
 brew install zsh-syntax-highlighting
 ```
+**Theme: powerlevel10k**
+```bash
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+p10k configure  # para configurar
+```
+
+### Configure global python
+
+```bash
+brew install pyenv
+pyenv install 3.12
+pyenv global 3.12
+```
