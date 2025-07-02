@@ -43,3 +43,9 @@ source ~/.zshrc
 nvm install lts/jod
 nvm alias default lts/jod    # la fijamos como predeterminada
 ```
+
+### Extensiones zsh
+```bash
+brew install zsh-autosuggestions
+brew install zsh-syntax-highlighting
+```

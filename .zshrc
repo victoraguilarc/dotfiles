@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,7 +70,17 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  zsh-completions
+  history-substring-search
+  fzf
+  nvm
+  docker docker-compose
+  extract
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,7 +114,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-# dotfiles versioning
+# Versionamiento de los dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 export NVM_DIR="$HOME/.nvm"
@@ -112,8 +122,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-
-# Autocargar la version de node de una carpeta
+# Autocargar la version de node por carpeta
 autoload -U add-zsh-hook
 load-nvmrc() {
   local node_version
@@ -123,4 +132,4 @@ load-nvmrc() {
   fi
 }
 add-zsh-hook chpwd load-nvmrc
-load-nvmrc 
+load-nvmrc
