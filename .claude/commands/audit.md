@@ -1,5 +1,3 @@
-/project:full-audit
-
 Analiza:
 - Calidad de código
 - Seguridad

@@ -1,5 +1,3 @@
-/project:final-deploy
-
 Prepara release con:
 - Branch principal limpio
 - Docker image o build listos
