@@ -110,3 +110,17 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+
+# Autocargar la version de node de una carpeta
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version
+  if [ -f .nvmrc ]; then
+    node_version=$(cat .nvmrc)
+    nvm use "$node_version" > /dev/null
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc 
